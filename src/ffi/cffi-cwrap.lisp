@@ -40,7 +40,7 @@
 (defstruct (foreign-wrapper (:conc-name #:fw-))
   (ptr #.(cffi:null-pointer) :type #.(type-of (cffi:null-pointer))))
 
-#+(or cmucl ecl sbcl clisp)
+#+(or cmucl ecl sbcl clisp lispworks)
 (defstruct (foreign-wrapper (:conc-name #:fw-))
   (ptr (cffi:null-pointer) :type #.(type-of (cffi:null-pointer))))
 
