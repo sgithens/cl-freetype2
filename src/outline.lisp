@@ -81,14 +81,14 @@ to remain valid."
     (error () 1))
   0)
 
-(defparameter *outline-funcs*
-  (let ((struct (make-collected-foreign 'ft-outline-funcs
-                                        '(:struct foreign-ft-outline-funcs))))
-    (setf (ft-outline-funcs-move-to struct) (callback cb-outline-moveto))
-    (setf (ft-outline-funcs-line-to struct) (callback cb-outline-lineto))
-    (setf (ft-outline-funcs-conic-to struct) (callback cb-outline-conicto))
-    (setf (ft-outline-funcs-cubic-to struct) (callback cb-outline-cubicto))
-    struct))
+(defparameter *outline-funcs* nil)
+  ;; (let ((struct (make-collected-foreign 'ft-outline-funcs
+  ;;                                       '(:struct foreign-ft-outline-funcs))))
+  ;;   (setf (ft-outline-funcs-move-to struct) (callback cb-outline-moveto))
+  ;;   (setf (ft-outline-funcs-line-to struct) (callback cb-outline-lineto))
+  ;;   (setf (ft-outline-funcs-conic-to struct) (callback cb-outline-conicto))
+  ;;   (setf (ft-outline-funcs-cubic-to struct) (callback cb-outline-cubicto))
+  ;;   struct))
 
 (defmacro do-outline-decompose (outline decompose-lambda &body body)
   "Iterate `OUTLINE`, passing the operation, a point, and up to two more
